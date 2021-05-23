@@ -17,33 +17,32 @@ public class TestClient {
     public static void main(String[] args) {
         Client client = ClientBuilder.newClient(); 
         
+        // getting single result and printing as string
 //        WebTarget target = client.target
 //                ("http://localhost:8080/RecordManagement/webservice/records/1");
 //        Invocation invocation = target.request().buildGet();
 //        Response response = invocation.invoke();
+//        System.out.println(response.readEntity(String.class));
                 
-//          Response response = client.target("http://localhost:8080/RecordManagement/webservice/records/1") 
+        //get single result and store in Record object and printing the object
+//          Response response = client.target("http://localhost:8080/RecordManagement/webservice/records/5") 
+//                                    .request()
+//                                    .buildGet()
+//                                    .invoke();    
+//          Record rec = response.readEntity(Record.class);
+//          System.out.println(rec);
+      
+        //get all records store in objects in list and printing the list
+//          Response response = client.target("http://localhost:8080/RecordManagement/webservice/records")
 //                                    .request()
 //                                    .buildGet()
 //                                    .invoke();
           
-//          Record rec = response.readEntity(Record.class);
-//          System.out.println(rec);
-      
-//          System.out.println(response.readEntity(String.class));
-      
-          Response response = client.target("http://localhost:8080/RecordManagement/webservice/records")
-                                    .request()
-                                    .buildGet()
-                                    .invoke();
-          
-//          System.out.println(response.readEntity(String.class));
-          
-          List<Record> records = response.readEntity(new GenericType<List<Record>>() {});
-          
-          for (Record r : records) {
-              System.out.println(r);
-          }
+//          List<Record> records = response.readEntity(new GenericType<List<Record>>() {});
+//          
+//          for (Record r : records) {
+//              System.out.println(r);
+//          }
           
          
     }   

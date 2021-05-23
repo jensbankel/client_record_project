@@ -6,6 +6,7 @@ public class Record {
     private String title;
     private String genre;
     private String barCode;
+    
     public int getId() {
         return id;
     }

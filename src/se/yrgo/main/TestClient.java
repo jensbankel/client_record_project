@@ -42,6 +42,23 @@ public class TestClient {
           for (Record r : records) {
               System.out.println(r);
           }
+        
+//        Record rec = new Record();
+//        rec.setArtist("Nahid");
+//        rec.setGenre("Punk");
+//        rec.setTitle("Rock 'n' roll never dies");
+//        rec.setBarCode("123456");
+//        
+//        Entity recEntity = Entity.entity(rec, "application/JSON");
+//        
+//        Response resp = client.target("http://localhost:8080/RecordManagement/webservice/records")
+//                              .request()
+//                              .buildPost(recEntity)
+//                              .invoke();
+//        System.out.println(resp.readEntity(Record.class).getId());
+//        
+//        resp.close();
+        
           
          
     }   

@@ -33,16 +33,15 @@ public class TestClient {
 //          System.out.println(rec);
       
         //get all records store in objects in list and printing the list
-//          Response response = client.target("http://localhost:8080/RecordManagement/webservice/records")
-//                                    .request()
-//                                    .buildGet()
-//                                    .invoke();
+          Response response = client.target("http://localhost:8080/RecordManagement/webservice/records")
+                                    .request()
+                                    .buildGet()
+                                    .invoke();        
+          List<Record> records = response.readEntity(new GenericType<List<Record>>() {});
           
-//          List<Record> records = response.readEntity(new GenericType<List<Record>>() {});
-//          
-//          for (Record r : records) {
-//              System.out.println(r);
-//          }
+          for (Record r : records) {
+              System.out.println(r);
+          }
           
          
     }   

@@ -33,33 +33,43 @@ public class TestClient {
 //          System.out.println(rec);
       
         //get all records store in objects in list and printing the list
-          Response response = client.target("http://localhost:8080/RecordManagement/webservice/records")
-                                    .request()
-                                    .buildGet()
-                                    .invoke();        
-          List<Record> records = response.readEntity(new GenericType<List<Record>>() {});
-          
-          for (Record r : records) {
-              System.out.println(r);
-          }
+//          Response response = client.target("http://localhost:8080/RecordManagement/webservice/records")
+//                                    .request()
+//                                    .buildGet()
+//                                    .invoke();        
+//          List<Record> records = response.readEntity(new GenericType<List<Record>>() {});
+//          
+//          for (Record r : records) {
+//              System.out.println(r);
+//          }
+       /* 
+        Record rec = new Record();
+        rec.setArtist("Nahid");
+        rec.setGenre("Punk");
+        rec.setTitle("Rock 'n' roll never dies");
+        rec.setBarCode("123456");
         
-//        Record rec = new Record();
-//        rec.setArtist("Nahid");
-//        rec.setGenre("Punk");
-//        rec.setTitle("Rock 'n' roll never dies");
-//        rec.setBarCode("123456");
-//        
-//        Entity recEntity = Entity.entity(rec, "application/JSON");
-//        
-//        Response resp = client.target("http://localhost:8080/RecordManagement/webservice/records")
-//                              .request()
-//                              .buildPost(recEntity)
-//                              .invoke();
-//        System.out.println(resp.readEntity(Record.class).getId());
-//        
-//        resp.close();
+        Entity recEntity = Entity.entity(rec, "application/JSON");
         
-          
+        Response resp = client.target("http://localhost:8080/RecordManagement/webservice/records")
+                              .request()
+                              .buildPost(recEntity)
+                              .invoke();
+        System.out.println(resp.readEntity(Record.class).getId());*/
+        
+        Response resp = client.target("http://localhost:8080/RecordManagement/webservice/records/44")
+                .request("application/JSON")
+                .buildGet()
+                .invoke();
+        
+        System.out.println(resp.getHeaders().toString());
+        System.out.println(resp.getStatus()); 
+        System.out.println(resp.getStatusInfo());
+        
+        System.out.println(resp.readEntity(String.class));
+        
+        resp.close();
+        
          
     }   
 }

@@ -63,7 +63,7 @@ public class TestClient {
                 .invoke();
         
         System.out.println(resp.getHeaders().toString());
-        System.out.println(resp.getStatus()); //Någon getmethod som hämtar meddelande??
+        System.out.println(resp.getStatus()); 
         System.out.println(resp.getStatusInfo());
         
         System.out.println(resp.readEntity(String.class));

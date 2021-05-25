@@ -1,5 +1,11 @@
 package se.yrgo.record;
 
+/**
+ * 
+ * @author Alexander Gabay
+ *
+ */
+
 public class Record {
     private int id;
     private String artist;
@@ -40,7 +46,7 @@ public class Record {
     @Override
     public String toString() {
         return "Record (" + this.id + ") - " + this.artist
-                + " " + this.title;
+                + " - " + this.title;
     }
     
     

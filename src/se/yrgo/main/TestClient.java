@@ -57,19 +57,46 @@ public class TestClient {
                               .invoke();
         System.out.println(resp.readEntity(Record.class).getId());*/
         
-        Response resp = client.target("http://localhost:8080/RecordManagement/webservice/records/44")
-                .request("application/JSON")
-                .buildGet()
-                .invoke();
+//        Response resp = client.target("http://localhost:8080/RecordManagement/webservice/records/44")
+//                .request("application/JSON")
+//                .buildGet()
+//                .invoke();
+//        
+//        System.out.println(resp.getHeaders().toString());
+//        System.out.println(resp.getStatus()); 
+//        System.out.println(resp.getStatusInfo());
+//        
+//        System.out.println(resp.readEntity(String.class));
+//        
+//        resp.close();
         
-        System.out.println(resp.getHeaders().toString());
-        System.out.println(resp.getStatus()); 
-        System.out.println(resp.getStatusInfo());
+        Response response = client.target("http://localhost:8080/RecordManagement/webservice/records")
+                .request("application/JSON").buildGet().invoke();
+        List<Record> records = response.readEntity(new GenericType<List<Record>>() {});
         
-        System.out.println(resp.readEntity(String.class));
+        for (Record e : records) { System.out.println(e);
+        }
         
-        resp.close();
+//        response = client.target("http://localhost:8080/RecordManagement/webservice/records/9")
+//                .request().buildDelete().invoke();
+//        System.out.println("Delete status was " + response.getStatus());
+//        response.close();
         
+        Record newRecord = new Record();
+        newRecord.setArtist("Nahid");
+        newRecord.setTitle("Nahids greatest");
+        newRecord.setBarCode("1234");
+        newRecord.setGenre("rock");
+        
+        Entity nahidEntity = Entity.entity(newRecord, "application/JSON");
+        response = client.target("http://localhost:8080/RecordManagement/webservice/records/1")
+                .request().buildPut(nahidEntity).invoke();
+        
+        System.out.println("Update status was " + response.getStatus()); 
+        System.out.println(response.readEntity(String.class)); 
+        
+        
+        response.close();
          
     }   
 }

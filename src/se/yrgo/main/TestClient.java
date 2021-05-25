@@ -77,10 +77,10 @@ public class TestClient {
         for (Record e : records) { System.out.println(e);
         }
         
-//        response = client.target("http://localhost:8080/RecordManagement/webservice/records/9")
-//                .request().buildDelete().invoke();
-//        System.out.println("Delete status was " + response.getStatus());
-//        response.close();
+        response = client.target("http://localhost:8080/RecordManagement/webservice/records/9")
+                .request().buildDelete().invoke();
+        System.out.println("Delete status was " + response.getStatus());
+        response.close();
         
         Record newRecord = new Record();
         newRecord.setArtist("Nahid");

@@ -16,6 +16,16 @@ import javax.ws.rs.core.Response;
 
 import se.yrgo.record.Record;
 
+
+/**
+ * @author Naoya Irikura
+ * @author Alexander Gabay
+ * @author Jens Bankel
+ *
+ * A client for testing connecting to the server from an external client. Testing
+ * all methods implemented in the server
+ * 
+ */
 public class TestClient {
 
     public static void main(String[] args) {

@@ -3,6 +3,11 @@ package se.yrgo.record;
 /**
  * 
  * @author Alexander Gabay
+ * @author Jens Bankel
+ * @author Naoya Irikura
+ * 
+ * A Record class mimicking the Record class internal to the server used in some
+ * of the methods in the TestClient class. 
  *
  */
 
